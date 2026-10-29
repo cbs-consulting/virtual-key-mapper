@@ -29,10 +29,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.html_url }}
         run: gh pr review --approve "$PR"
-      # main merges through a merge queue, which picks the merge method itself.
+      # The merge queue picks its own method; --squash is used when there is no queue.
       - name: Enable auto-merge
         if: steps.metadata.outputs.package-ecosystem != 'pip' && (steps.metadata.outputs.update-type == 'version-update:semver-minor' || steps.metadata.outputs.update-type == 'version-update:semver-patch')
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: gh pr merge --auto "$PR"
+        run: gh pr merge --auto --squash "$PR"
