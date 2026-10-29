@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools==84.0.0"]
+requires = ["setuptools==84.2.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Software Development",
 ]
 dependencies = [
-    "filelock==4.0.9",
+    "filelock==4.2.4",
     "keyring==25.7.0",
 ]
 
